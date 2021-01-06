@@ -1,8 +1,10 @@
 import asyncio
+from asyncio_helpers import asyncio_run
 from flask import Flask, request
 from multiprocessing import Process, Manager
 import os
 from pyppeteer import launch
+import sys
 from user_dir import USER_DATA_DIR
 import urllib.parse
 
@@ -21,7 +23,7 @@ async def get_async(d):
     d['html'] = html
 
 def get_process(url):
-    return asyncio.run(get_async(url))
+    return asyncio_run(get_async(url))
 
 @app.route('/proxy', methods=['GET'])
 def get():

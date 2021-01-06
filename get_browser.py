@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import asyncio
+from asyncio_helpers import asyncio_run
 from pyppeteer import launch
 
 async def get_browser_info():
@@ -9,4 +9,4 @@ async def get_browser_info():
     await b.close()
     return path
 
-print(asyncio.run(get_browser_info()))
+print(asyncio_run(get_browser_info()))
