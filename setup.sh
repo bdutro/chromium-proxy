@@ -19,4 +19,4 @@ fi
 
 sudo chown -R $PROXY_USER:$PROXY_USER $USER_DIR/..
 sudo cp $SCRIPT_PATH/chromium-proxy.service /etc/systemd/system/chromium-proxy.service
-sudo sed -i "s/%INSTALL_PATH%/${SCRIPT_PATH}/g" /etc/systemd/system/chromium-proxy.service
+sudo sed -i "s|%INSTALL_PATH%|${SCRIPT_PATH%/}|g" /etc/systemd/system/chromium-proxy.service
