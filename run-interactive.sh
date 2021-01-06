@@ -1,11 +1,11 @@
 #!/bin/bash
 
-source .env/bin/activate
+SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+source $SCRIPT_PATH/.env/bin/activate
 
 source /etc/chromium-proxy.conf
 export PYPPETEER_HOME
-
-SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 USER_DIR=$($SCRIPT_PATH/user_dir.py)
 

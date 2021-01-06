@@ -3,7 +3,7 @@
 SCRIPT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 PYTHON3="/usr/bin/env python3"
 PROXY_USER=cproxy
-$PYTHON3 -m venv .env && source .env/bin/activate && $PYTHON3 -m pip install -r requirements.txt
+cd $SCRIPT_PATH && $PYTHON3 -m venv .env && source .env/bin/activate && $PYTHON3 -m pip install -r requirements.txt
 
 sudo cp $SCRIPT_PATH/chromium-proxy.conf.example /etc/chromium-proxy.conf
 
