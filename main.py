@@ -3,7 +3,7 @@ from flask import Flask, request
 from multiprocessing import Process, Manager
 import os
 from pyppeteer import launch
-from .user_dir import USER_DATA_DIR
+from user_dir import USER_DATA_DIR
 import urllib.parse
 
 app = Flask(__name__)
