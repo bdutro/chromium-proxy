@@ -10,5 +10,5 @@ export PYPPETEER_HOME
 USER_DIR=$($SCRIPT_PATH/user_dir.py)
 
 mkdir -p $USER_DIR
-BROWSER=$($SCRIPT_DIR/get_browser.py)
+BROWSER=$($SCRIPT_PATH/get_browser.py)
 $BROWSER --user-data-dir=$USER_DIR
