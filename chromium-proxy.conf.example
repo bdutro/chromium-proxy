@@ -1,0 +1,2 @@
+PYPPETEER_HOME=/var/lib/chromium-proxy
+NUM_WORKERS=8
