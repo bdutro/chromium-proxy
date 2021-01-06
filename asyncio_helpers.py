@@ -1,4 +1,5 @@
 import asyncio
+import sys
 
 if sys.version_info < (3, 7):
     def asyncio_run(p):
