@@ -11,4 +11,4 @@ USER_DIR=$($SCRIPT_PATH/user_dir.py)
 
 mkdir -p $USER_DIR
 BROWSER=$($SCRIPT_PATH/get_browser.py)
-$BROWSER --user-data-dir=$USER_DIR
+sudo -u cproxy $BROWSER --user-data-dir=$USER_DIR
