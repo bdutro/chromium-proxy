@@ -12,15 +12,20 @@ app = Flask(__name__)
 
 async def get_async(d):
     url = d['url']
-    browser = await launch(userDataDir=USER_DATA_DIR)
-    page = await browser.newPage()
-    decoded_url = urllib.parse.unquote(url)
-    await page.goto(decoded_url)
-    #await page.waitForNavigation({"waitUtil": 'networkidle0', "timeout": 0})
-    #await asyncio.sleep(5)
-    html = await page.evaluate("() => document.querySelector('*').outerHTML")
-    await browser.close()
-    d['html'] = html
+    browser = await launch(userDataDir=USER_DATA_DIR, args=['--no-sandbox'])
+
+    try:
+        page = await browser.newPage()
+        decoded_url = urllib.parse.unquote(url)
+        await page.goto(decoded_url)
+        #await page.waitForNavigation({"waitUtil": 'networkidle0', "timeout": 0})
+        #await asyncio.sleep(5)
+        html = await page.evaluate("() => document.querySelector('*').outerHTML")
+        await browser.close()
+        d['html'] = html
+    except:
+        await browser.close()
+        raise
 
 def get_process(url):
     return asyncio_run(get_async(url))
